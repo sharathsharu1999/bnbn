@@ -1,4 +1,4 @@
-name: BUILD
+name: Static Code Analysis
 
 on:
   push:
@@ -13,6 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
-    - name: make all
-      run:  make all -C 3_Implementation/
+    - name: install cppcheck
+      run: sudo apt -y install cppcheck
+    - name: cpp Check
+      run: cppcheck 3_Implementation
